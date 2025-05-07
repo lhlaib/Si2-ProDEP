@@ -1,0 +1,13 @@
+{
+    "name": "test",
+    "version": "1",
+    "actions": [
+        {
+            "action_name": "divide16",
+            "action_type": "DEP",
+            "loop_interval": 50,
+            "loop_iterations": 1,
+            "folder_path": "Z:/LOC/G6/Tkinter GUI/20240919/grouping/group16"
+        }
+    ]
+}

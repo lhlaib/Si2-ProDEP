@@ -1,0 +1,49 @@
+Notes:
+
+1. 使用之前請到 header.py 下更改全域變數
+	
+	RASPBERRY_PI_IP 為你的 RPI 的 IP
+	RPI_ON 為是否連接 RPI
+	AD2_ON 為你的電腦是否下載 Waveform (有下載但沒接上AD2裝置也可設置為True)
+	OBS_ON 為是否啟用攝像機
+	DEVELOP_MODE 為是否允許使用 Debugger
+	
+2. 執行
+
+	在 main.py 下的資料夾執行 [Python3路徑] main.py 
+	
+	
+版本變更 
+
+* 1228版本：
+
+	1. 調整計時在即使跨 Action 時也是精確的
+	2. 增加用戶可以選擇的 Timer Mode 選項
+	3. 修改並增加 AD2 控制相關功能 (Enable/Disable、Turn off Sine Wave 與更改全部參數)
+	4. 禁止 Action 重名 (修正刪除 Action 錯誤的 Bug)
+	5. 修正對已存在的 Action 變更資料夾沒有將原本導入的 Pattern 清空的問題
+	6. 修正執行兩次 Run 出錯的問題
+	7. 修正 Pause 和 Stop/Run 衝突的問題，以及 Pause 影響計時的問題
+	8. 修正用戶點在文字上無法選到 Action 的問題
+	9. 打開右方 Status Frame 顯示
+	10. 傳送 Pattern 前取消發送 Reset 以避免粒子跳動
+	11. 解決視窗往後跑的問題
+	12. 增加 loop Protocol 與支援掃頻功能 (計時精確)
+	13. 按右鍵或 Delete 也可刪除 Action
+	14. 執行 BIST 可以 Refresh
+	
+* 250103 版本：
+	
+	1. 將 Timer Mode 的 Precise 模式改名為 Normal
+	2. 增加掃頻時可選擇一頻多掃
+	3. 修復首次使用快捷鍵沒有反應的問題
+
+* 250105 版本：
+	
+	1. 在顯示 Protocol 區域增加 scrollbar
+	2. 新增讀取 Scipt 功能 (原本未完成的 Console 仍然保留)
+	3. 在掃頻前提示用戶輸入的頻率 (因為發生過單位設定錯誤的情況)
+	4. 修正 Preview 時按兩次的問題，並規定 Preview 前用戶需手動 Stop
+	5. 修正新建 Protocol 後導致的一連串 Memeory leak 的問題
+	
+	

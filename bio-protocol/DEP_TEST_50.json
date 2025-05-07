@@ -1,0 +1,39 @@
+{
+    "name": "DEP_TEST",
+    "version": "10",
+    "actions": [
+        {
+            "action_name": "Divide4",
+            "action_type": "DEP",
+            "pattern_interval": 500,
+            "loop_interval": 0,
+            "loop_iterations": 10,
+            "folder_path": "./pattern/divide/divide4",
+            "action_frequency": 5000000,
+            "action_phase": 180,
+            "action_voltage": 1.8
+        },
+        {
+            "action_name": "Group8",
+            "action_type": "DEP",
+            "pattern_interval": 1000,
+            "loop_interval": 500,
+            "loop_iterations": 5,
+            "folder_path": "./pattern/grouping/group8",
+            "action_frequency": 2000000,
+            "action_phase": 180,
+            "action_voltage": 1.8
+        },
+        {
+            "action_name": "Dilution",
+            "action_type": "DEP",
+            "pattern_interval": 1000,
+            "loop_interval": 200,
+            "loop_iterations": 1,
+            "folder_path": "./pattern/dilution",
+            "action_frequency": 3000000,
+            "action_phase": 180,
+            "action_voltage": 1.8
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "actions": [
+        {
+            "action_name": "test",
+            "action_type": "DEP",
+            "loop_interval": 1,
+            "loop_iterations": 1,
+            "folder_path": "Z:/LOC/G6/Tkinter GUI/20240919/dilution"
+        },
+        {
+            "action_name": "234",
+            "action_type": "DEP",
+            "loop_interval": 1,
+            "loop_iterations": 1,
+            "folder_path": "Z:/LOC/G6/Tkinter GUI/20240919/dilution"
+        }
+    ]
+}

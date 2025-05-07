@@ -1,0 +1,27 @@
+{
+    "name": "DEP_TEST",
+    "version": "10",
+    "actions": [
+        {
+            "action_name": "Divide4",
+            "action_type": "DEP",
+            "loop_interval": 100,
+            "loop_iterations": 20,
+            "folder_path": "Z:/LOC/G6/Tkinter GUI/20240919/divide/divide4"
+        },
+        {
+            "action_name": "Group8",
+            "action_type": "DEP",
+            "loop_interval": 500,
+            "loop_iterations": 5,
+            "folder_path": "Z:/LOC/G6/Tkinter GUI/20240919/grouping/group8"
+        },
+        {
+            "action_name": "Dilution",
+            "action_type": "DEP",
+            "loop_interval": 100,
+            "loop_iterations": 1,
+            "folder_path": "Z:/LOC/G6/Tkinter GUI/20240919/dilution"
+        }
+    ]
+}

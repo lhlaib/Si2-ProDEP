@@ -1,0 +1,80 @@
+{
+    "name": "EXP",
+    "version": "1.0",
+    "actions": [
+        {
+            "action_name": "settle",
+            "action_type": "DEP",
+            "pattern_interval": 5000,
+            "timer_mode": "Correct",
+            "loop_interval": 0,
+            "loop_iterations": 1,
+            "folder_path": "./pattern/SpeedCalPat/all_1",
+            "action_frequency": 3000000,
+            "action_phase": 180,
+            "action_voltage": 1.8
+        },
+        {
+            "action_name": "move",
+            "action_type": "DEP",
+            "pattern_interval": 500,
+            "timer_mode": "Normal",
+            "loop_interval": 0,
+            "loop_iterations": 1,
+            "folder_path": "./pattern/SpeedCalPat/move",
+            "action_frequency": 1000000,
+            "action_phase": 180,
+            "action_voltage": 1.8
+        },
+        {
+            "action_name": "settle2",
+            "action_type": "DEP",
+            "pattern_interval": 2000,
+            "timer_mode": "Correct",
+            "loop_interval": 0,
+            "loop_iterations": 1,
+            "folder_path": "./pattern/SpeedCalPat/all_1",
+            "action_frequency": 3000000,
+            "action_phase": 180,
+            "action_voltage": 1.8
+        },
+        {
+            "action_name": "collect",
+            "action_type": "DEP",
+            "pattern_interval": 4500,
+            "timer_mode": "Correct",
+            "loop_interval": 0,
+            "loop_iterations": 1,
+            "folder_path": "./pattern/SpeedCalPat/collect",
+            "action_frequency": 3000000,
+            "action_phase": 180,
+            "action_voltage": 1.8
+        }
+    ],
+    "ai_detection": [
+        {
+            "camera_adjust": {
+                "cam_x": 0,
+                "cam_y": 0,
+                "cam_width": 800,
+                "cam_height": 800
+            },
+            "calibration": {
+                "show_cross": true,
+                "top_left_cross_x": 0,
+                "top_left_cross_y": 0,
+                "bottom_right_cross_x": 800,
+                "bottom_right_cross_y": 800
+            },
+            "detection": {
+                "confidence": 0.5,
+                "overlap": 0.5,
+                "show_detect": false
+            },
+            "pattern_gen": {
+                "thickness": 3,
+                "hollow": 2
+            }
+        }
+    ]
+}
