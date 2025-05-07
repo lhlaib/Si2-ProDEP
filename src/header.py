@@ -43,10 +43,10 @@ import requests
 
 
 # RASPBERRY_PI_IP = '100.106.170.105'
-RASPBERRY_PI_IP = '192.168.0.168'
-RPI_ON = False
-AD2_ON = True 
-OBS_ON = False
+RASPBERRY_PI_IP = '100.94.43.76'
+RPI_ON = True
+AD2_ON = True
+OBS_ON = True
 DEVELOP_MODE = True
 
 class bcolors:

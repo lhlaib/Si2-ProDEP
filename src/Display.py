@@ -25,7 +25,6 @@
 ##########################################################################
 
 from src.header import *
-from src.Chip import *
 from PIL import Image, ImageTk
 import cv2
 import numpy as np
@@ -181,15 +180,6 @@ class DualDisplayApp:
 
         G_var.pattern_label = self.pattern_label  # 將 pattern_label 存入 G_var
 
-        # add a button to apply pattern to CHIP
-        self.apply_button = tk.Button(self.left_frame, text="Apply Pattern", command=lambda: self.apply_pattern_to_chip(G_var))
-        self.apply_button.pack()
-
-        # add a button to run real-time control mode on DEP Chip 
-        self.real_time_button = tk.Button(self.left_frame, text="Real-time Control", command=lambda: self.real_time_control(G_var))
-        self.real_time_button.pack()
-
-
         # 右邊部分 - OBS 畫面 Frame
         self.right_frame = tk.Frame(self.main_frame)
         self.right_frame.pack(side=tk.RIGHT, padx=10, pady=10)
@@ -268,96 +258,10 @@ class DualDisplayApp:
             self.start_obs_stream()
             self.update_fram(G_var)
 
-    def real_time_control(self, G_var):
-        # in real time control mode, we will use the keyboard to control the chip
-        # the key binding is as follows:
-        # up: move up
-        # down: move down
-        # left: move left
-        # right: move right
-        # space: reset pattern
-        # q: quit real time control mode
-        # +: 擴增 pattern
-        # -: 減少 pattern
-
-        self.root.bind("<Up>", lambda event: self.move_up(G_var))
-        self.root.bind("<Down>", lambda event: self.move_down(G_var))
-        self.root.bind("<Left>", lambda event: self.move_left(G_var))
-        self.root.bind("<Right>", lambda event: self.move_right(G_var))
-        self.root.bind("<space>", lambda event: self.reset_pattern(G_var))
-        self.root.bind("q", lambda event: self.quit_real_time_control(G_var))
-        self.root.bind("o", lambda event: self.enlarge_pattern(G_var))
-        self.root.bind("p", lambda event: self.shrink_pattern(G_var))
-
-        # randonly generate a square numpy array in the center of the chip
-        self.pattern = np.zeros((128, 128), dtype=int)
-        self.pattern[50:78, 50:78] = 1
-
-        # update the pattern image
-        Func_update_pattern_image(self.pattern, G_var)
-    
-    def move_up(self, G_var):
-        # move the pattern up
-        self.pattern = np.roll(self.pattern, -1, axis=0)
-        Func_update_pattern_image(self.pattern, G_var)
-
-    def move_down(self, G_var):
-        # move the pattern down
-        self.pattern = np.roll(self.pattern, 1, axis=0)
-        Func_update_pattern_image(self.pattern, G_var)
-
-    def move_left(self, G_var):
-        # move the pattern left
-        self.pattern = np.roll(self.pattern, -1, axis=1)
-        Func_update_pattern_image(self.pattern, G_var)
-
-    def move_right(self, G_var):
-        # move the pattern right
-        self.pattern = np.roll(self.pattern, 1, axis=1)
-        Func_update_pattern_image(self.pattern, G_var)
-
-    def reset_pattern(self, G_var):
-        # reset the pattern
-        self.pattern = np.zeros((128, 128), dtype=int)
-        Func_update_pattern_image(self.pattern, G_var)
-    
-    def enlarge_pattern(self, G_var):
-        # enlarge the pattern
-        self.pattern = np.kron(self.pattern, np.ones((2, 2)))
-        Func_update_pattern_image(self.pattern, G_var)
-
-    def shrink_pattern(self, G_var):
-        # shrink the pattern
-        self.pattern = self.pattern[::2, ::2]
-        Func_update_pattern_image(self.pattern, G_var)
-
-    
-    def quit_real_time_control(self, G_var):
-        # quit the real time control mode
-        self.root.unbind("<Up>")
-        self.root.unbind("<Down>")
-        self.root.unbind("<Left>")
-        self.root.unbind("<Right>")
-        self.root.unbind("<space>")
-        self.root.unbind("q")
-        Func_update_pattern_image(self.pattern, G_var)
-    
-
-
-    def apply_pattern_to_chip(self, G_var):
-        # generate pattern by click position
-        self.generate_pattern()
-        # Call def send_pattern_to_pi(pattern): in Chip.py
-        send_pattern_to_pi(self.pattern)
-        # update the pattern image
-        Func_update_pattern_image(self.pattern, G_var)
-        # print("Pattern applied to CHIP")
-        print("Pattern applied to CHIP")
-
     def start_obs_stream(self):
         # 啟動一個新執行緒來檢查 OBS 狀態，避免主執行緒被阻塞
         #threading.Thread(target=self.connect_to_obs, daemon=True).start()
-        self.cap = cv2.VideoCapture(0)  # 預設使用第一個Webcam
+        self.cap = cv2.VideoCapture(2)  # 預設使用第一個Webcam
         # set 1920x1080
         self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
         self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)

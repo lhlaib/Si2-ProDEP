@@ -34,7 +34,7 @@ if __name__ == "__main__":
     # dual_display_app = DualDisplayApp(root2, G_var)
 
     # read default protocol
-    G_var.dragdrop_app.load_protocol(G_var,"./bio-protocol/DEP_TEST_70.json")
+    G_var.dragdrop_app.load_protocol(G_var,"./bio-protocol/SpeedTest5M10k.json")
 
     root.mainloop()
 

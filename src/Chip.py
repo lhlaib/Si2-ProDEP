@@ -23,7 +23,7 @@ import matplotlib.pyplot as plt
 import math
 
 # RASPBERRY_PI_IP = '100.106.170.105'
-RASPBERRY_PI_IP = '192.168.0.168'
+RASPBERRY_PI_IP = '100.94.43.76'
 
 
 
